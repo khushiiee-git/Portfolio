@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CONTACT</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --dark-bg: #101010;
+        --card-bg: #222222;
+        --input-bg: #333333;
+        --text-color-light: #e0e0e0;
+        --text-color-darker: #b0b0b0;
+        --primary-green: #25d366; /* Specific WhatsApp green */
+        --secondary-green: #28a745; /* General icon green */
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: var(--dark-bg);
+        color: var(--text-color-light);
+        font-family: "Poppins", sans-serif; /* Use Poppins for general text */
+        min-height: 90%;
+        display: flex;
+        flex-direction: column;
+      }
+      nav {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 80px;
+        background-color: rgb(
+          33,
+          110,
+          135
+        ); /* Assuming this color is desired for the nav */
+        position: sticky; /* Keep nav at top */
+        top: 0;
+      }
+      nav ul {
+        display: flex;
+        justify-content: center;
+      }
+      nav ul li {
+        list-style: none;
+        margin: 0 23px;
+      }
+      nav ul li a {
+        text-decoration: none;
+        color: beige;
+      }
+      nav ul li a:hover {
+        text-decoration: underline;
+        color: lavenderblush;
+        font-size: 1.03rem;
+      }
+      .left-nav {
+        font-size: 1.3rem;
+        color: white;
+        font-weight: bold;
+      }
+      .left {
+        font-size: 2rem;
+        color: white;
+        font-weight: bold;
+      }
+      .leftsection {
+        margin-top: 40px;
+      }
+      .leftsection {
+        font-size: 3.5rem;
+        align-items: center;
+      }
+
+      /* Main content layout using Flexbox */
+      main {
+        display: flex;
+        flex-grow: 1;
+        padding: 40px; /* Overall padding for the main content area */
+        gap: 40px; /* Space between the two sections */
+      }
+
+      section.left,
+      section.right {
+        width: 50%; /* Each takes half the width */
+        display: flex;
+        justify-content: center; /* Center content horizontally */
+        align-items: flex-start; /* Align content to the top */
+        padding: 20px; /* Padding inside the section for spacing */
+      }
+
+      /* Style for the form container */
+      .form-card {
+        /* Renamed from .form to avoid conflict and be more descriptive */
+        background-color: var(--card-bg);
+        width: 100%; /* Take full width of its parent section */
+        height: 90vh;
+        padding: 40px; /* Increased padding */
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        display: flex;
+        flex-direction: column;
+        gap: 20px; /* Gap between form elements */
+      }
+
+      .get-in-touch-heading {
+        font-size: 2rem; /* Larger font size */
+        font-weight: 400; /* Bolder */
+        color: var(--primary-green); /* Green color for the heading */
+        margin-bottom: 10px; /* Space below heading */
+        justify-content: center;
+      }
+      .get-in-touch-description {
+        font-size: 0.95rem;
+        color: var(--text-color-darker);
+        line-height: 1;
+        margin-bottom: 10px; /* Space below description */
+      }
+
+      .form_box {
+        display: flex;
+        flex-direction: column;
+        gap: 15px; /* Gap between different input rows/blocks */
+      }
+
+      .name-fields,
+      .contact-fields {
+        /* Grouping firstname/lastname and email/phone */
+        display: flex;
+        gap: 20px; /* Space between two inputs in a row */
+        width: 90%;
+      }
+      .name-fields input,
+      .contact-fields input {
+        flex: 1; /* Make inputs share space equally */
+      }
+
+      .form-input-field,
+      .form-select-field,
+      .form-textarea-field {
+        /* Unified styling for all input types */
+        width: 100%;
+        padding: 18px 20px; /* Increased padding */
+        border: none;
+        background-color: var(--input-bg);
+        color: var(--text-color-light);
+        border-radius: 8px; /* Slightly more rounded corners */
+        font-size: 1rem;
+        outline: none;
+        font-family: "Roboto Mono", monospace; /* Use Roboto Mono for input fields */
+      }
+      .form-input-field::placeholder,
+      .form-textarea-field::placeholder {
+        color: var(--text-color-darker); /* Placeholder color */
+      }
+      .form-input-field:focus,
+      .form-select-field:focus,
+      .form-textarea-field:focus {
+        border: 1px solid var(--primary-green); /* Green border on focus */
+      }
+
+      .form-textarea-field {
+        resize: vertical; /* Allow vertical resizing of textarea */
+        min-height: 80px; /* Minimum height for textarea */
+      }
+
+      .send-message-btn {
+        /* Renamed for clarity */
+        padding: 15px 30px; /* Larger button padding */
+        color: var(--dark-bg); /* Dark text on green background */
+        background-color: var(--primary-green);
+        border: none; /* No border */
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        align-self: flex-start; /* Align button to the left within flex container */
+      }
+      .send-message-btn:hover {
+        background-color: #1edc5d; /* Slightly lighter green on hover */
+      }
+
+      /* Right section for contact details (Contact Info Card) */
+      .contact-info-card {
+        /* Renamed from .container for clarity */
+        background-color: var(--card-bg);
+        width: 100%; /* Take full width of its parent section */
+        max-width: 600px; /* Max width for readability */
+        padding: 30px; /* Adjusted padding */
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        box-sizing: border-box;
+        height: 100vh;
+        max-height: 80vh; /* Control max height */
+        display: flex;
+        flex-direction: column;
+        gap: 15px; /* Gap between info items */
+      }
+
+      .info-item {
+        display: flex;
+        align-items: center;
+        padding: 15px 0;
+        border-bottom: 1px solid #444;
+      }
+      .info-item:last-child {
+        border-bottom: none;
+      }
+      .icon-wrapper {
+        background-color: var(
+          --input-bg
+        ); /* Darker background for the icon circle */
+        border-radius: 50%;
+        width: 55px; /* Slightly larger icon wrapper */
+        height: 55px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 18px; /* Increased margin */
+        flex-shrink: 0;
+      }
+      .icon {
+        color: var(--secondary-green); /* General icon green */
+        font-size: 26px; /* Slightly larger icons */
+      }
+      .content {
+        flex-grow: 1;
+      }
+      .label {
+        font-size: 0.9em; /* Slightly smaller label */
+        color: var(--text-color-darker);
+        margin-bottom: 2px; /* Reduced margin */
+        font-family: "Roboto Mono", monospace; /* Use Roboto Mono for labels */
+      }
+      .value {
+        font-size: 1.05em; /* Slightly larger value */
+        word-wrap: break-word;
+        font-family: "Roboto Mono", monospace; /* Use Roboto Mono for values */
+      }
+      .whatsapp .icon {
+        color: var(--primary-green); /* Specific WhatsApp green */
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="left">KHUSHI SRIVASTAVA</div>
+        <div class="right">
+          <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="project.html">PROJECT</a></li>
+            <li><a href="skills.html">SKILLS</a></li>
+            <li>
+              <a href="contact.html" style="font-weight: 800">CONTACT ME</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section class="left">
+        <div class="form-card">
+          <div class="get-in-touch-heading">Get in Touch</div>
+          <div class="get-in-touch-description">
+            Fill out the form below and I will get back to you as soon as
+            possible.
+          </div>
+          <form class="form_box">
+            <div class="name-fields">
+              <input
+                type="text"
+                id="firstname"
+                name="firstname"
+                placeholder="Firstname"
+                class="form-input-field"
+              />
+              <input
+                type="text"
+                id="lastname"
+                name="lastname"
+                placeholder="Lastname"
+                class="form-input-field"
+              />
+            </div>
+            <div class="contact-fields">
+              <input
+                type="email"
+                id="email"
+                placeholder="Email address"
+                name="email"
+                class="form-input-field"
+              />
+              <input
+                type="text"
+                id="phone"
+                name="phone"
+                placeholder="Phone number"
+                class="form-input-field"
+              />
+            </div>
+            <div class="purpose">
+              <select id="reason" name="reason" class="form-select-field">
+                <option value="" disabled selected>Select A Reason</option>
+                <option value="general">General Inquiry</option>
+                <option value="support">Technical Support</option>
+                <option value="feedback">Feedback</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="msg">
+              <textarea
+                rows="6"
+                id="msg"
+                name="msg"
+                placeholder="Type your Message Here."
+                class="form-textarea-field"
+              ></textarea>
+            </div>
+            <div class="sub">
+              <button type="submit" class="send-message-btn">
+                Send Message
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+      <section class="right">
+        <div class="contact-info-card">
+          <div class="info-item whatsapp">
+            <div class="icon-wrapper">
+              <i class="fab fa-whatsapp icon"></i>
+            </div>
+            <div class="content">
+              <div class="label">Phone</div>
+              <div class="value">+91 73175 73755</div>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="icon-wrapper">
+              <i class="fas fa-phone-alt icon"></i>
+            </div>
+            <div class="content">
+              <div class="label">Phone</div>
+              <div class="value">+91 73175 73755</div>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="icon-wrapper">
+              <i class="fas fa-envelope icon"></i>
+            </div>
+            <div class="content">
+              <div class="label">Email</div>
+              <div class="value">khushii0711@gmail.com</div>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="icon-wrapper">
+              <i class="fas fa-map-marker-alt icon"></i>
+            </div>
+            <div class="content">
+              <div class="label">Address</div>
+              <div class="value">Ghaziabad, India</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

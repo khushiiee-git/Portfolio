@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Services</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --dark-bg: #101010;
+        --card-bg: #222222;
+        --text-color-light: #e0e0e0;
+        --text-color-darker: #b0b0b0;
+        --primary-green: #25d366; /* Used for numbers and maybe highlights */
+        --arrow-circle-bg: #333333; /* Background for the arrow circle */
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: var(--dark-bg);
+        color: var(--text-color-light);
+        font-family: "Poppins", sans-serif;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* Navigation Bar (copied from previous code for completeness) */
+      nav {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 80px;
+        background-color: rgb(33, 110, 135);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+      nav ul {
+        display: flex;
+        justify-content: center;
+      }
+      nav ul li {
+        list-style: none;
+        margin: 0 23px;
+      }
+      nav ul li a {
+        text-decoration: none;
+        color: beige;
+      }
+      nav ul li a:hover {
+        text-decoration: underline;
+        color: lavenderblush;
+        font-size: 1.03rem;
+      }
+      .left-nav {
+        font-size: 1.3rem;
+        color: white;
+        font-weight: bold;
+      }
+      .left {
+        font-size: 2rem;
+        color: white;
+        font-weight: bold;
+      }
+
+      /* Main content area for the grid */
+      main {
+        flex-grow: 1;
+        padding: 60px; /* Overall padding around the grid */
+        display: grid;
+        grid-template-columns: repeat(
+          auto-fit,
+          minmax(400px, 1fr)
+        ); /* Responsive grid */
+        gap: 40px; /* Space between grid items */
+        justify-content: center; /* Center grid items if they don't fill the row */
+        align-content: start; /* Align grid content to the top */
+      }
+
+      .service-card {
+        background-color: var(--card-bg);
+        border-radius: 10px;
+        padding: 30px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        display: flex;
+        flex-direction: column;
+        position: relative; /* For positioning the arrow circle */
+        overflow: hidden; /* Ensure anything overflowing is hidden, especially for effects */
+        min-height: 250px; /* Ensure cards have a minimum height */
+      }
+
+      .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .card-number {
+        font-family: "Roboto Mono", monospace;
+        font-size: 1.5em; /* Larger font for number */
+        font-weight: bold;
+        color: var(--primary-green);
+      }
+
+      .arrow-circle {
+        background-color: var(--arrow-circle-bg);
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
+        transition: background-color 0.3s ease;
+      }
+
+      .arrow-circle .icon {
+        color: var(--text-color-light);
+        font-size: 24px;
+      }
+
+      .card-title {
+        font-size: 1.8em; /* Title font size */
+        font-weight: 700;
+        line-height: 1.2;
+        margin-bottom: 15px;
+        font-family: "Roboto Mono", monospace; /* Use Roboto Mono for titles */
+      }
+
+      .card-description {
+        font-size: 0.95em;
+        color: var(--text-color-darker);
+        line-height: 1.6;
+        flex-grow: 1; /* Allow description to take up available space */
+      }
+
+      /* Hover Effect for Card and Arrow Circle */
+      .service-card:hover .arrow-circle {
+        background-color: var(--primary-green); /* Change background on hover */
+      }
+      .service-card:hover .arrow-circle .icon {
+        color: var(--dark-bg); /* Change icon color on hover */
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 1200px) {
+        main {
+          grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+          padding: 40px;
+          gap: 30px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        main {
+          grid-template-columns: 1fr; /* Stack cards vertically on small screens */
+          padding: 30px;
+          gap: 25px;
+        }
+        .service-card {
+          padding: 25px;
+        }
+        .card-title {
+          font-size: 1.6em;
+        }
+        .card-number {
+          font-size: 1.3em;
+        }
+      }
+
+      @media (max-width: 480px) {
+        nav {
+          height: auto;
+          flex-direction: column;
+          padding: 15px 0;
+        }
+        nav .left-nav {
+          margin-bottom: 10px;
+        }
+        nav ul {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+        nav ul li {
+          margin: 5px 10px;
+        }
+        main {
+          padding: 20px;
+          gap: 20px;
+        }
+        .service-card {
+          padding: 20px;
+        }
+        .card-title {
+          font-size: 1.4em;
+        }
+        .card-description {
+          font-size: 0.9em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="left">KHUSHI SRIVASTAVA</div>
+        <div class="right">
+          <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="project.html">PROJECT</a></li>
+            <li><a href="skills.html" style="font-weight: 800">SKILLS</a></li>
+            <li>
+              <a href="contact.html">CONTACT ME</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="service-card">
+        <div class="card-header">
+          <span class="card-number">01</span>
+        </div>
+        <h2 class="card-title">Frontend Web Development</h2>
+        <p class="card-description">
+          I can proficiently implement cutting-edge HTML, CSS, and JavaScript to
+          construct dynamic and intuitive user interfaces, transforming
+          conceptual visions into tangible, high-quality web products.
+        </p>
+      </div>
+
+      <div class="service-card">
+        <div class="card-header">
+          <span class="card-number">02</span>
+        </div>
+        <h2 class="card-title">Data Structures and Algorithms</h2>
+        <p class="card-description">
+          I can proficiently design and implement optimized data structures and
+          algorithms, transforming complex computational challenges into
+          efficient and scalable solutions.
+        </p>
+      </div>
+
+      <div class="service-card">
+        <div class="card-header">
+          <span class="card-number">03</span>
+        </div>
+        <h2 class="card-title">Content Writing</h2>
+        <p class="card-description">
+          I can develop strategic content solutions aligned with specific
+          business objectives, transforming concepts into persuasive narratives
+          that enhance brand authority and foster audience growth.
+        </p>
+      </div>
+
+      <div class="service-card">
+        <div class="card-header">
+          <span class="card-number">04</span>
+        </div>
+        <h2 class="card-title">Oratory</h2>
+        <p class="card-description">
+          I can inspire and connect with diverse audiences through dynamic and
+          engaging public speaking, transforming complex information into
+          memorable and actionable insights.
+        </p>
+      </div>
+
+      <div class="service-card">
+        <div class="card-header">
+          <span class="card-number">05</span>
+        </div>
+        <h2 class="card-title">Leadership and Management</h2>
+        <p class="card-description">
+          I can cultivate high-performing teams, fostering environments of
+          collaboration and innovation, while strategically guiding initiatives
+          from conception to successful completion.
+        </p>
+      </div>
+    </main>
+  </body>
+</html>

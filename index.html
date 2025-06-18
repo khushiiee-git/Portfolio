@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&di" rel="stylesheet"/>
+    <style>
+      *{
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background-color: rgb(16, 16, 16);
+        color: white;
+        font-family: "Poppins", sans-serif;
+      }
+      nav {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 80px;
+        background-color: rgb(33, 110, 135);
+      }
+      nav ul {
+        display: flex;
+        justify-content: center;
+      }
+      nav ul li {
+        list-style: none;
+        margin: 0 23px;
+      }
+      nav ul li a {
+        text-decoration: none;
+        color: beige;
+      }
+      nav ul li a:hover {
+        text-decoration: underline;
+        color: lavenderblush;
+        font-size: 1.03rem;
+      }
+      .left {
+        font-size: 2rem;
+        color: white;
+        font-weight: bold;
+      }
+      .firstsection {
+        display: flex;
+        margin: 50px 0;
+        justify-content: space-around;
+        align-items: center;
+      }
+      .firstsection > div {
+        width: 34%;
+      }
+      .leftsection {
+        margin-top: 40px;
+      }
+      .leftsection {
+        font-size: 3.5rem;
+        align-items: center;
+      }
+      .rightsection img {
+        width: 70%;
+        height: 50%;
+        margin-top: 20%;
+      }
+      #element {
+        color: rgb(94, 193, 188);
+      }
+      .leftsection .button {
+        padding: 40px 0;
+        display: flex;
+        justify-content: center;
+
+      }
+      .leftsection .btn {
+        padding: 12px;
+        color: rgb(94, 193, 188);
+        background-color: rgb(16, 16, 16);
+        border: 2px solid rgb(94, 193, 188);
+        border-radius: 10px;
+        font-size: 20px;
+        cursor: pointer;
+        
+      }
+      .button .btn:hover {
+        background: rgb(33, 110, 135);
+        color: white;
+      }
+      .rightsection img {
+        animation-name: img_animate;
+        animation-timing-function: ease;
+        animation-duration: 3s;
+        animation-fill-mode: forwards;
+      }
+      .summary p{
+        font-size: 0.95rem;
+        text-align: center;
+        margin-top: 25px;
+        color:rgb(142, 140, 138);
+      }
+      @keyframes img_animate {
+        from {
+          border-radius: 0%;
+          scale: 0;
+        }
+        to {
+          border-radius: 45%;
+          scale: 1.1;
+          margin-top: 50px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="left">KHUSHI SRIVASTAVA</div>
+        <div class="right">
+          <ul>
+            <li><a href="index.html" style="font-weight: 800">HOME</a></li>
+            <li><a href="project.html">PROJECT</a></li>
+            <li><a href="skills.html">SKILLS</a></li>
+            <li><a href="contact.html">CONTACT ME</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section class="firstsection">
+        <div class="leftsection">
+          <div class="div1">Hi, I am Khushi !</div>
+          <div class="div2">I am a passionate</div>
+          <span id="element"></span>
+          <div class="summary">
+            <p>A driven Computer Science student with a strong academic record and a passion for web development.</p>
+            <p>Possessing a versatile skill set and eager to leverage proven skills to contribute to innovative technical solutions.</p>
+          </div>
+          <div class="button">
+            <button
+              type="button"
+              class="btn"
+              onclick="window.open('https://drive.google.com/file/d/1jwFwMgBmqh63X5mKJWYuHd7VJwSG5bFf/view?usp=drive_link','_blank')"
+            >
+              Download Resume
+            </button>
+          </div>
+        </div>
+        <div class="rightsection">
+          <img src="my photo.jpg" />
+        </div>
+      </section>
+    </main>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+      var typed = new Typed("#element", {
+        strings: ["Web Developer", "Content Writer", "Orator"],
+        typeSpeed: 60,
+      });
+    </script>
+    <!-- ADDING ANIMATIONS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  </body>
+</html>
